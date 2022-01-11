@@ -6,7 +6,7 @@
 #    By: hphanixa <hphanixa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:40:21 by hphanixa          #+#    #+#              #
-#    Updated: 2021/01/20 17:31:05 by hphanixa         ###   ########.fr        #
+#    Updated: 2022/01/11 10:54:54 by hphanixa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ SRCS		= ft_isalnum.c \
 			  ft_strrchr.c \
 			  ft_strtrim.c \
 			  ft_putchar_fd.c \
+			  ft_putchar.c \
+			  ft_putstr.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
 			  ft_putnbr_fd.c \
@@ -61,8 +63,8 @@ OBJS		= $(SRCS:.c=.o)
 
 BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 
-CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CC			= clang
+CFLAGS		= -Wall -Wextra -Werror -fsanitize=address,undefined
 RM			= rm -rf
 NAME		= libft.a
 AR			= ar rcs
