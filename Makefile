@@ -6,7 +6,7 @@
 #    By: hphanixa <hphanixa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:40:21 by hphanixa          #+#    #+#              #
-#    Updated: 2022/01/11 10:54:54 by hphanixa         ###   ########.fr        #
+#    Updated: 2022/01/11 16:23:40 by hphanixa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRCS		= ft_isalnum.c \
 			  ft_isascii.c \
 			  ft_isdigit.c \
 			  ft_isprint.c \
+			  ft_isprintable.c \
 			  ft_tolower.c \
 			  ft_toupper.c \
 			  ft_bzero.c \
@@ -41,7 +42,6 @@ SRCS		= ft_isalnum.c \
 			  ft_strrchr.c \
 			  ft_strtrim.c \
 			  ft_putchar_fd.c \
-			  ft_putchar.c \
 			  ft_putstr.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
@@ -63,8 +63,8 @@ OBJS		= $(SRCS:.c=.o)
 
 BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 
-CC			= clang
-CFLAGS		= -Wall -Wextra -Werror -fsanitize=address,undefined
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 NAME		= libft.a
 AR			= ar rcs
