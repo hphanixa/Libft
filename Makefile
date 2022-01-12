@@ -6,7 +6,7 @@
 #    By: hphanixa <hphanixa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:40:21 by hphanixa          #+#    #+#              #
-#    Updated: 2022/01/11 16:23:40 by hphanixa         ###   ########.fr        #
+#    Updated: 2022/01/12 10:48:34 by hphanixa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS		= ft_isalnum.c \
 			  ft_isascii.c \
 			  ft_isdigit.c \
 			  ft_isprint.c \
-			  ft_isprintable.c \
 			  ft_tolower.c \
 			  ft_toupper.c \
 			  ft_bzero.c \
@@ -41,8 +40,9 @@ SRCS		= ft_isalnum.c \
 			  ft_strnstr.c \
 			  ft_strrchr.c \
 			  ft_strtrim.c \
-			  ft_putchar_fd.c \
 			  ft_putstr.c \
+			  ft_putchar.c \
+			  ft_putchar_fd.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
 			  ft_putnbr_fd.c \
