@@ -6,7 +6,7 @@
 #    By: hphanixa <hphanixa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:40:21 by hphanixa          #+#    #+#              #
-#    Updated: 2022/01/12 10:48:34 by hphanixa         ###   ########.fr        #
+#    Updated: 2022/02/18 09:55:15 by hphanixa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,7 @@ SRCS		= ft_isalnum.c \
 			  ft_putstr_fd.c \
 			  ft_putendl_fd.c \
 			  ft_putnbr_fd.c \
-
-BONUS_SRCS	= ft_lstadd_front.c \
+			  ft_lstadd_front.c \
 			  ft_lstadd_back.c \
 			  ft_lstsize.c \
 			  ft_lstlast.c \
@@ -57,35 +56,39 @@ BONUS_SRCS	= ft_lstadd_front.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
 
-INCS		= libft.h
-
 OBJS		= $(SRCS:.c=.o)
 
-BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
-
-CC			= gcc
+CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+
+ifeq ($(debug), 1)
+	CFLAGS += -g3 -fsanitize=address,undefined
+endif
+
 NAME		= libft.a
 AR			= ar rcs
 
-%.o			: %.c
-			$(CC) $(CFLAGS) -c $< -o $@
+INCLUDES 	+= .
+HEADERS	 	+= $(INCLUDES)/libft.h
 
-$(NAME)		: $(OBJS) $(INCS)
-			$(AR) $(NAME) $(OBJS)
 
 all			: $(NAME)
 
-bonus		: $(OBJS) $(BONUS_OBJS) $(INCS)
-			$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+$(NAME)		: $(OBJS) $(INCS)
+			$(AR) $(NAME) $(OBJS) -I $(INCLUDES)
+
+
+$(OBJS): %.o: %.c $(HEADERS)
+			$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_OBJS)
+			$(RM) $(OBJS)
 
 fclean		: clean
 			$(RM) $(NAME)
 
-re			: fclean all
+re			: fclean
+			$(MAKE)
 
 .PHONY		: all clean fclean re
+
