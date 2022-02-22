@@ -38,3 +38,46 @@ int	ft_atoi(const char *str)
 		return (-1);
 	return (result * negatif);
 }
+
+long	ft_atol(const char *str)
+{
+	int		signe;
+	long	number;
+
+	while (ft_isspace(*str))
+		str++;
+	signe = 1;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			signe *= -1;
+		str++;
+	}
+	number = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		number *= 10;
+		number += *str - '0';
+		str++;
+	}
+	return (number *= signe);
+}
+
+int	ft_satol(const char *str, long *nb)
+{
+	*nb = 0;
+	if (ft_isnumber(str) == false)
+		return (FAILURE);
+	*nb = ft_atol(str);
+	return (SUCCESS);
+}
+
+int	ft_satoi(const char *str, int *nb)
+{
+	long	lnb;
+	int		ret;
+
+	ret = ft_satol(str, &lnb);
+	*nb = (int)lnb;
+	return (ret);
+}
