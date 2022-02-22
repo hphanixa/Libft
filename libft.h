@@ -26,6 +26,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 bool	ft_isnumber(const char *str);
+bool	ft_isinteger(long nbr);
 int		ft_isspace(char c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);

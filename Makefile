@@ -6,7 +6,7 @@
 #    By: hphanixa <hphanixa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/07 14:40:21 by hphanixa          #+#    #+#              #
-#    Updated: 2022/02/18 09:55:15 by hphanixa         ###   ########.fr        #
+#    Updated: 2022/02/22 14:34:54 by hphanixa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ SRCS		= ft_isalnum.c \
 			  ft_isalpha.c \
 			  ft_isascii.c \
 			  ft_isdigit.c \
+			  ft_isinteger.c \
 			  ft_isprint.c \
 			  ft_isnumber.c \
 			  ft_isspace.c \
