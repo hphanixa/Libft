@@ -4,6 +4,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
+#include <stdbool.h>
+
+# define FAILURE 0
+# define SUCCESS 1
 
 typedef struct s_list
 {
@@ -20,6 +25,8 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+bool	ft_isnumber(const char *str);
+int		ft_isspace(char c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
 void	ft_lstadd_back(t_list **alst, t_list *new);
