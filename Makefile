@@ -15,6 +15,8 @@ SRCS		= ft_isalnum.c \
 			  ft_isascii.c \
 			  ft_isdigit.c \
 			  ft_isprint.c \
+			  ft_isnumber.c \
+			  ft_isspace.c \
 			  ft_tolower.c \
 			  ft_toupper.c \
 			  ft_bzero.c \
@@ -56,7 +58,9 @@ SRCS		= ft_isalnum.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
 
-OBJS		= $(SRCS:.c=.o)
+OBJS		= $(patsubst %.c, $(PATH_OBJS)/%.o, $(SRCS))
+
+PATH_OBJS	+= objs
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
@@ -74,21 +78,17 @@ HEADERS	 	+= $(INCLUDES)/libft.h
 
 all			: $(NAME)
 
-$(NAME)		: $(OBJS) $(INCS)
+$(NAME)		: $(PATH_OBJS) $(OBJS) $(INCS)
 			$(AR) $(NAME) $(OBJS)
 
+$(PATH_OBJS):
+	mkdir -p $@
 
-$(OBJS): %.o: %.c $(HEADERS)
+$(OBJS): $(PATH_OBJS)/%.o: %.c $(HEADERS)
 			$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
 
 clean:
 			$(RM) $(OBJS)
 
 fclean		: clean
-			$(RM) $(NAME)
-
-re			: fclean
-			$(MAKE)
-
-.PHONY		: all clean fclean re
-
+			$(RM) -R $(PATH_OBJS)
