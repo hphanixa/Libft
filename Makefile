@@ -75,7 +75,7 @@ HEADERS	 	+= $(INCLUDES)/libft.h
 all			: $(NAME)
 
 $(NAME)		: $(OBJS) $(INCS)
-			$(AR) $(NAME) $(OBJS) -I $(INCLUDES)
+			$(AR) $(NAME) $(OBJS)
 
 
 $(OBJS): %.o: %.c $(HEADERS)
