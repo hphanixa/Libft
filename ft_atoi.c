@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 
 	negatif = 1;
 	result = 0;
-	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -74,10 +74,10 @@ int	ft_satol(const char *str, long *nb)
 
 int	ft_satoi(const char *str, int *nb)
 {
-	long	lnb;
+	long	long_nb;
 	int		ret;
 
-	ret = ft_satol(str, &lnb);
-	*nb = (int)lnb;
+	ret = ft_satol(str, &long_nb);
+	*nb = (int)long_nb;
 	return (ret);
 }
