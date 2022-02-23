@@ -14,29 +14,27 @@
 
 int	ft_atoi(const char *str)
 {
-	int		negatif;
-	size_t	result;
+	int		i;
+	int		signe;
+	size_t	number;
 
-	negatif = 1;
-	result = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-' || *str == '+')
+	i = 0;
+	signe = 1;
+	number = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			negatif = -1;
-		str++;
+		if (str[i] == '-')
+			signe *= -1;
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = (result * 10) + (*str - 48);
-		str++;
+		number = nb * 10 + str[i] - 48;
+		i++;
 	}
-	if (negatif < 0 && result > 2147483648)
-		return (0);
-	if (negatif > 0 && result > 2147483647)
-		return (-1);
-	return (result * negatif);
+	return (number * signe);
 }
 
 long	ft_atol(const char *str)
