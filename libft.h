@@ -19,6 +19,9 @@ typedef struct s_list
 
 
 int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
+int	ft_satol(const char *str, long *nb);
+int	ft_satoi(const char *str, int *nb);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
