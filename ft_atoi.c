@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		number = nb * 10 + str[i] - 48;
+		number = number * 10 + str[i] - 48;
 		i++;
 	}
 	return (number * signe);
