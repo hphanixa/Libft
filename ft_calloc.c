@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+/*
+** fonction servant a allouer la memoire puis initialiser a 0
+** cela evite les garbage data et 
+** evite de devoir rajouter une ligne pour initialiser a 0
+*/
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*result;
