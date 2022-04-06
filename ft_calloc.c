@@ -13,9 +13,9 @@
 #include "libft.h"
 
 /*
-** fonction servant a allouer la memoire puis initialiser a 0
+** fonction servant a allouer la memoire puis initialiser à 0
 ** cela evite les garbage data et 
-** evite de devoir rajouter une ligne pour initialiser a 0
+** evite de devoir rajouter une ligne pour initialiser à 0
 */
 
 void	*ft_calloc(size_t count, size_t size)
@@ -23,8 +23,8 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*result;
 
 	result = malloc(size * count);
-		if (!result)
+		if (result == NULL)
 		return (NULL);
-	ft_memset(result, 0, count * size);
+	ft_bzero(result, count * size);
 	return (result);
 }
