@@ -12,12 +12,18 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
-{
-	int	i;
+/* La valeur retour est un size_t car len sera toujours positif.
+** <len> correspond à la longueur cherchée, et i correspond généralement à un index.
+** <len++> le compilateur stock la valeur temporaire de len avant d'incrementer.
+** <++len> la valeur est incrémentée et non stockée, ce qui est plus optimal.
+*/
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+size_t	ft_strlen(const char * const str)
+{
+	size_t len;
+
+	len = 0;
+	while (str[len] != '\0')
+		++len;
+	return (len);
 }
