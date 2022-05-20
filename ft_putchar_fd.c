@@ -11,9 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
+/* Si l'appel systeme write reussit, il renvoie le nbr d'octet lu
+** sinon, elle renvoie -1 et met a jour errno.
+** En faisant <return (write...)>, cela nous permet de recuperer la valeur retour de write
+** qui est un ssize_t (d'où le prototype de la fonction).
+** Les variables reçues sont constantes car elles ne sont pas amenées a etre modifié.
+*/
+
+ssize_t	ft_putchar_fd(const char c, const int fd)
 {
-	write(fd, &c, 1);
+	return (write(fd, &c, sizeof(c));
 }
