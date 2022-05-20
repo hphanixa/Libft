@@ -12,7 +12,11 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+/* la fonction renvoie un ssize_t car l'appel a ft_putchar_fd renvoie un ssize_t).
+** On recoit un const char car cette variable n'est pas amenée a etre modifiée.
+/*
+
+ssize_t	ft_putchar(const char c) 
 {
-	write(1, &c, 1);
+	return (ft_putchar_fd(c, STDOUT_FILENO));
 }
